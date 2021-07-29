@@ -18,7 +18,7 @@
         <h1 class="app-title">Weather Dashboard</h1>
     </header>
 
-    <main>
+    <main class="container-fluid">
         <div class="col-12 col-md-4">
             <h2>Search for a City:</h2>
             <form>
@@ -26,7 +26,13 @@
                 <button type="button" class="btn-primary">Search</button>
             </form>
         </div> 
-        <div class="col-12 col-md-8" id="response-container"></div>
+        <div class="col-12 col-md-8 display" id="response-container">
+            <h2 class="name date"></h2>
+            <p class="temp">Temp:</p>
+            <p class="wind">Wind:</p>
+            <p class="humidity">Humidity:</p>
+            <p class="uv">UV Index:</p>
+        </div>
     </main>
 
 
