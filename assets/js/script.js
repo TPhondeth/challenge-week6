@@ -1,8 +1,5 @@
 // Declaration of Variables
-let responseContainer = document.querySelector('#response-container');
 let name = document.querySelector('.name');
-// let date = document.querySelector('.date');
-let icon = document.querySelector('.icon');
 let temp = document.querySelector('.temp');
 let wind = document.querySelector('.wind');
 let humidity = document.querySelector('.humidity');
@@ -15,7 +12,6 @@ const apiKey = '8cb2238a37cf037e6cb64bd1b66f4f0a';
 function myWeather() {
     let cityName = document.querySelector('#cityname').value;
     
-
     fetch(
         'http://api.openweathermap.org/data/2.5/weather?q=' +
         cityName +
@@ -26,20 +22,18 @@ function myWeather() {
     })
     .then(function(data) {
         let nameValue = data['name'];
-        let iconValue = data['weather']['icon'];
         let tempValue = data['main']['temp'];
         let windValue = data['wind']['speed'];
         let humidityValue = data['main']['humidity'];
         
 
-        name.innerHTML = nameValue + " " + iconValue;
+        name.innerHTML = nameValue;
         temp.innerHTML = "Temp: " + tempValue + " " + "&#x2103;";
         wind.innerHTML = "Wind: " + windValue + " " + "MPH";
         humidity.innerHTML = "Humidity: " + humidityValue + " " + "&#x25;" ;
-
-        
-
-    });
+    })
 }
-    btnPrimary.addEventListener('click', myWeather);
+        btnPrimary.addEventListener('click', myWeather)
+
+
     
