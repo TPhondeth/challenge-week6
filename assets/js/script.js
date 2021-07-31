@@ -3,7 +3,6 @@ let name = document.querySelector('.name');
 let temp = document.querySelector('.temp');
 let wind = document.querySelector('.wind');
 let humidity = document.querySelector('.humidity');
-let uv = document.querySelector('.uv');
 let btnPrimary = document.querySelector('.btn-primary');
 
 // API Key
@@ -26,6 +25,7 @@ function myWeather() {
         let windValue = data['wind']['speed'];
         let humidityValue = data['main']['humidity'];
         
+        
 
         name.innerHTML = nameValue;
         temp.innerHTML = "Temp: " + tempValue + " " + "&#x2103;";
@@ -33,7 +33,7 @@ function myWeather() {
         humidity.innerHTML = "Humidity: " + humidityValue + " " + "&#x25;" ;
     })
 }
-        btnPrimary.addEventListener('click', myWeather)
+    btnPrimary.addEventListener('click', myWeather)
 
 
     
