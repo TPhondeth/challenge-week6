@@ -19,7 +19,7 @@ html {
 
 /* Font Styles */
 body {
-    font-family: "IBM Plex Sans", sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .hero {
@@ -79,5 +79,11 @@ h3 {
     font-size: 3rem;
     font-weight: bold;
     padding: 15px 0;
+}
+
+.forecast p {
+    font-size: 2rem;
+    color: #ffffff;
+    background-color: #4a4e69;
 }
 
