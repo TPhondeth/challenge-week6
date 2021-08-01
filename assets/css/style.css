@@ -69,6 +69,15 @@ p {
     padding-left: 5px;
 }
 
+.uvIndex {
+    background-color: #38b000;
+}
+
+span {
+    border-radius: 3px;
+    padding: 3px;
+}
+
 .line {
     border-top: solid 2px black;
     margin-top: 15px;
@@ -85,8 +94,10 @@ h3 {
     background-color: #4a4e69;
 }
 
+
 .forecast p {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: #ffffff;
 }
+
 
