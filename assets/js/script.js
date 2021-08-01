@@ -1,8 +1,10 @@
 // Declaration of Variables
 let nameEl = document.querySelector('.name');
+let iconEl = document.querySelector('.icon');
 let tempEl = document.querySelector('.temp');
 let windEl = document.querySelector('.wind');
 let humidityEL = document.querySelector('.humidity');
+let uvEl = document.querySelector('.uv');
 let searchBtnEl = document.querySelector('.btn-primary');
 
 // API Key
@@ -14,6 +16,7 @@ function myWeather() {
     fetch(
         'http://api.openweathermap.org/data/2.5/weather?q=' +
         cityName +
+        '&units=metric' +
         '&appid=' +
         apiKey
     )
@@ -22,32 +25,32 @@ function myWeather() {
     })
     .then(function(data) {
         console.log(data);
-        let nameValue = data['name'];
-        let tempValue = data['main']['temp'];
-        let windValue = data['wind']['speed'];
-        let humidityValue = data['main']['humidity'];
-        let currentDate = new Date().toLocaleDateString()
+        // Parse data to display current date and conditions
+        const currentDate = new Date(data.dt*1000);
+        console.log(currentDate);
+        const day = currentDate.getDate();
+        const month = currentDate.getMonth() + 1;
+        const year = currentDate.getFullYear();
+        // let weatherIcon = data.weather[0].icon;
+        // iconEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherIcon + "@2x.png");
+        // iconEl.setAttribute("alt", data.weather[0].description);
+        nameEl.innerHTML = data.name + " (" + month + "/" + day + "/" + year + ") ";
+        tempEl.innerHTML = "Temp: " + data.main.temp + " " + "&#x2103;";
+        windEl.innerHTML = "Wind: " + data.wind.speed  + " " + "MPH";
+        humidityEL.innerHTML = "Humidity: " + data.main.humidity + " " + "&#x25;" ;
+    })
+    // Query to retrieve UV index
+    return fetch(
+                'https://api.openweathermap.org/data/2.5/uvi/forecast?lat=' + lat + '&lon=' + 
+                lon + '&appid=' + apiKey + '&cnt=1'
+    )
+    .then(function(data) {
+        console.log(data);
         
-        // Display current date and weather conditions
-        nameEl.innerHTML = nameValue + " " + currentDate; 
-        tempEl.innerHTML = "Temp: " + tempValue + " " + "&#x2103;";
-        windEl.innerHTML = "Wind: " + windValue + " " + "MPH";
-        humidityEL.innerHTML = "Humidity: " + humidityValue + " " + "&#x25;" ;
-    })
-    .catch(function(err) {
-        alert('Please search a valid city!');
-    })
+        // uvEl.innerHTML = "UV Index: " + data.
 
-    // Five Day Forecast
-    let forecastURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&appid=' + apiKey;
-    .then(function(response) {
-        console.log(forecastURL);
-
-        const forecastEl = document.querySelectorAll('forecast');
     })
 }
-
-    
     searchBtnEl.addEventListener('click', myWeather)
 
 
