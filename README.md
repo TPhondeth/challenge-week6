@@ -6,7 +6,7 @@ The challenge this week is to build a weather dashboard that will run in the bro
 
 
 
-URL : https://tphondeth.github.io/challenge-week6/
+URL :  https://tphondeth.github.io/challenge-week6/
 
 ----
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
