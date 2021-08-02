@@ -82,23 +82,20 @@ function myWeather() {
             const forecastDay = forecastDate.getDate();
             const forecastMonth = forecastDate.getMonth() + 1;
             const forecastYear = forecastDate.getUTCFullYear();
-
+            
             forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
             forecastEl[i].append(forecastDateEl);
+            forecastIconEl.setAttribute("src", "https://openweathermap.org/img/wn/" + data.list[forecastIndex].weather[0].icon + "@2x.png");
+            forecastIconEl.setAttribute("alt", data.list[forecastIndex].weather[0].description);
+            forecastEl[i].append(forecastIconEl);
             forecastTempEl.innerHTML = "Temp: " + (data.list[forecastIndex].main.temp) + " " + "&#x2103;";
             forecastEl[i].append(forecastTempEl);
             forecastWindEl.innerHTML = "Wind: " + (data.list[forecastIndex].wind.speed) + " " +  "MPH";
             forecastEl[i].append(forecastWindEl);
             forecastHumidityEl.innerHTML = "Humidity: " + (data.list[forecastIndex].main.humidity) + " " +  "&#x25;";
             forecastEl[i].append(forecastHumidityEl);
-            forecastIconEl.setAttribute("src", "https://openweathermap.org/img/wn/" + data.list[forecastIndex].weather[0].icon + "@2x.png");
-            forecastIconEl.setAttribute("alt", data.list[forecastIndex].weather[0].description);
-            forecastEl[i].append(forecastIconEl);
-
-            
         }
     })
-
 }
     searchBtnEl.addEventListener('click', myWeather)
 
