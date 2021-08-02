@@ -14,7 +14,7 @@ function myWeather() {
     // Fetch request to Open Weather Map API
     let cityName = document.querySelector('#cityname').value;
     fetch(
-        'http://api.openweathermap.org/data/2.5/weather?q=' +
+        'https://api.openweathermap.org/data/2.5/weather?q=' +
         cityName +
         '&units=metric' +
         '&appid=' +
@@ -24,7 +24,7 @@ function myWeather() {
         return response.json();
     })
     .then(function(data) {
-        console.log(data);
+        // console.log(data);
         // Parse data to display current date and conditions
         const currentDate = new Date(data.dt*1000);
         console.log(currentDate);
@@ -52,7 +52,7 @@ function myWeather() {
         return response.json();
     })
     .then(function(data) {
-        console.log(data);
+        // console.log(data);
         uvIndexEl.innerHTML = data[0].value
         uvEl.innerHTML = "UV Index: ";
         uvEl.appendChild(uvIndexEl);
@@ -66,7 +66,7 @@ function myWeather() {
         return response.json();
     })
     .then(function(data) {
-        console.log(data);
+        // console.log(data);
         const forecastEl = document.querySelectorAll('.forecast');
         // Parse data to display 5-Day Forecast
         for (i = 0; i < forecastEl.length; i++) {
