@@ -1,6 +1,5 @@
 // Declaration of Variables
 let nameEl = document.querySelector('.name');
-let iconEl = document.querySelector('.icon');
 let tempEl = document.querySelector('.temp');
 let windEl = document.querySelector('.wind');
 let humidityEL = document.querySelector('.humidity');
@@ -32,9 +31,9 @@ function myWeather() {
         const day = currentDate.getDate();
         const month = currentDate.getMonth() + 1;
         const year = currentDate.getFullYear();
-        // let weatherIcon = data.weather[0].icon;
-        // iconEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherIcon + "@2x.png");
-        // iconEl.setAttribute("alt", data.weather[0].description);
+        const iconEl = document.querySelector('.icon');
+        iconEl.setAttribute("src", "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png");
+        iconEl.setAttribute("alt", data.weather[0].description);
         nameEl.innerHTML = data.name + " (" + month + "/" + day + "/" + year + ") ";
         tempEl.innerHTML = "Temp: " + data.main.temp + " " + "&#x2103;";
         windEl.innerHTML = "Wind: " + data.wind.speed  + " " + "MPH";
@@ -72,7 +71,7 @@ function myWeather() {
         // Parse data to display 5-Day Forecast
         for (i = 0; i < forecastEl.length; i++) {
             forecastEl[i].innerHTML= "";
-            const forecastIndex = i*8 + 5;
+            const forecastIndex = i*8 + 4;
             const forecastDateEl = document.createElement('p');
             const forecastIconEl = document.createElement('img');
             const forecastTempEl = document.createElement('p');
